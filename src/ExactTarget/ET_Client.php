@@ -153,7 +153,7 @@ class ET_Client extends SoapClient {
 	}
 
 	function GetLastModifiedDate($remotepath) {
-		$curl = curl_init($remotepath);
+		$curl = ET_CurlFactory::create($remotepath);
 		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($curl, CURLOPT_NOBODY, true);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -184,7 +184,7 @@ class ET_Client extends SoapClient {
 
 		$headers = array("Content-Type: text/xml","SOAPAction: ".$saction, "User-Agent: ".ET_SDKUtils::getSDKVersion());
 
-		$ch = curl_init();
+		$ch = ET_CurlFactory::create();
 		curl_setopt ($ch, CURLOPT_URL, $location);
 		curl_setopt ($ch, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt ($ch, CURLOPT_POSTFIELDS, $content);
