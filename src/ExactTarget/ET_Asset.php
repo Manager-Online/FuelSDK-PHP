@@ -16,7 +16,7 @@ class ET_Asset extends ET_CUDSupportRest {
 
 		$post = array('file_contents'=>'@'.$this->attrs['filePath']);
 
-        $ch = curl_init();
+		$ch = ET_CurlFactory::create();
 
 		$headers = array("User-Agent: ".ET_SDKUtils::getSDKVersion());
 		curl_setopt ($ch, CURLOPT_HTTPHEADER, $headers);
