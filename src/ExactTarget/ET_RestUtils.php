@@ -7,7 +7,7 @@ use stdClass;
 class ET_RestUtils
 {
     public static function restGet($url) {
-    	$ch = curl_init();
+    	$ch = ET_CurlFactory::create();
     	$headers = array("User-Agent: ".ET_SDKUtils::getSDKVersion());
     	curl_setopt ($ch, CURLOPT_HTTPHEADER, $headers);
     	// Uses the URL passed in that is specific to the API used
@@ -36,7 +36,7 @@ class ET_RestUtils
      * @return string     The response payload from the REST service
      */
     public static function restPost($url, $content) {
-    	$ch = curl_init();
+    	$ch = ET_CurlFactory::create();
 
     	// Uses the URL passed in that is specific to the API used
     	curl_setopt($ch, CURLOPT_URL, $url);
@@ -71,7 +71,7 @@ class ET_RestUtils
      * @return string     The response payload from the REST service
      */
     public static function restPatch($url, $content) {
-    	$ch = curl_init();
+    	$ch = ET_CurlFactory::create();
 
     	// Uses the URL passed in that is specific to the API used
     	curl_setopt($ch, CURLOPT_URL, $url);
@@ -108,7 +108,7 @@ class ET_RestUtils
      * @return string     The response payload from the REST service
      */
     public static function restPut($url, $content) {
-    	$ch = curl_init();
+    	$ch = ET_CurlFactory::create();
 
     	// Uses the URL passed in that is specific to the API used
     	curl_setopt($ch, CURLOPT_URL, $url);
@@ -138,7 +138,7 @@ class ET_RestUtils
     }
 
     public static function restDelete($url) {
-    	$ch = curl_init();
+    	$ch = ET_CurlFactory::create();
 
     	$headers = array("User-Agent: ".ET_SDKUtils::getSDKVersion());
     	curl_setopt ($ch, CURLOPT_HTTPHEADER, $headers);
